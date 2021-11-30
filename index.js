@@ -40,10 +40,22 @@ app.get('/', async (req, res) =>{
     res.render('index')
 })
 
-// Index usuario 
+// Nosotros
 
 app.get('/nosotros', async (req, res) =>{
-    res.render('nosotros')
+    res.render('todos_nosotros')
+})
+
+// Reglas
+
+app.get('/reglas', async (req, res) =>{
+    res.render('todos_reglas')
+})
+
+// Reglas
+
+app.get('/terminos', async (req, res) =>{
+    res.render('todos_terminos')
 })
 
 // Admin mostrar categorias
