@@ -310,6 +310,17 @@ app.get('/admin/eliminarpartida/:codigo', async (req, res) =>{
     res.redirect('/admin/partida')
 })
 
+// Mostrar banners 
+
+app.get('/admin/banner', async (req, res) =>{
+
+    const banners = await db.Banner.findAll()
+
+    res.render('admin_banner', {
+        banners : banners
+    })
+})
+
 // Listen
 
 app.listen(PORT, ()=> {
