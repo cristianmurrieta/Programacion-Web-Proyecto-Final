@@ -106,6 +106,18 @@ app.post('/admin/modificarcategoria', async (req, res) =>{
     res.redirect('/admin')
 })
 
+// Eliminar 
+
+app.get('/admin/eliminarcategoria/:codigo', async (req, res) =>{
+    const idCategoria = req.params.codigo
+    await db.Categoriajuego.destroy({
+        where: {
+            id : idCategoria
+        }
+    })
+    res.redirect('/admin')
+})
+
 // Listen
 
 app.listen(PORT, ()=> {
