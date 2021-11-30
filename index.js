@@ -40,6 +40,16 @@ app.get('/', async (req, res) =>{
     res.render('index')
 })
 
+// Admin mostrar categorias
+
+app.get('/admin/categoria', async (req, res) =>{
+    const categorias = await db.Categoriajuego.findAll()
+
+    res.render('admin_categoria', {
+        categorias : categorias,
+    })
+})
+
 // Listen
 
 app.listen(PORT, ()=> {
