@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="index-assets/css/Footer-Dark.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
     <link rel="stylesheet" href="index-assets/css/styles.css">
+    <link rel="stylesheet" href="js/script-listas.js">
 
 </head>
 
@@ -86,12 +87,60 @@
                 <div class="form-container">
                     <form data-aos="fade" method="post">
                         <h2 class="text-center"><strong>Ingresa tu dirección</strong></h2>
-                        <div class="mb-3"><input class="form-control" type="email" name="direccion" placeholder="Dirección"></div>
-                        <div class="mb-3"><input class="form-control" type="password" id="region-input" name="region" placeholder="Región"><input class="form-control" type="password" id="provincia-input" name="provincia" placeholder="Provincia"><input class="form-control" type="password" name="distrito" placeholder="Distrito"></div>
+                        <div class="mb-3">
+                            <input class="form-control" type="text" name="direccion" placeholder="Dirección">
+                        </div>
+                        <select class="form-select" name="select-region" id="select-region" onchange="cambiaProvincias()">
+                            <option value="">Seleccione la región</option>
+                            <option value="Amazonas">Amazonas</option>
+                            <option value="Ancash">Ancash</option>
+                            <option value="Apurímac">Apurímac</option>
+                            <option value="Arequipa">Arequipa</option>
+                            <option value="Ayacucho">Ayacucho</option>
+                            <option value="Cajamarca">Cajamarca</option>
+                            <option value="Callao">Callao</option>
+                            <option value="Cuzco">Cuzco </option>
+                            <option value="Huancavelica">Huancavelica</option>
+                            <option value="Huánuco">Huánuco</option>
+                            <option value="Ica">Ica</option>
+                            <option value="Junín">Junín</option>
+                            <option value="La_Libertad">La Libertad</option>
+                            <option value="Lambayeque">Lambayeque</option>
+                            <option value="Lima">Lima</option>
+                            <option value="Loreto">Loreto</option>
+                            <option value="Madre_de_Dios">Madre de Dios</option>
+                            <option value="Moquegua">Moquegua</option>
+                            <option value="Pasco">Pasco</option>
+                            <option value="Piura">Piura</option>
+                            <option value="Puno">Puno</option>
+                            <option value="San_Martín">San Martín</option>
+                            <option value="Tacna">Tacna</option>
+                            <option value="Tumbes">Tumbes</option>
+                            <option value="Ucayali">Ucayali</option>
+                        </select>
+
+                        <div id="registro-espaciado4"></div>
+
+                        <select class="form-select" name="select-region" id="select-provincia" >
+                            <option value="">Seleccione su provincia</option>
+                        </select>
+
+                        <div id="registro-espaciado4"></div>
+
+                        <select class="form-select" name="select-region" id="select-distrito">
+                            <option value="">Seleccione su región</option>
+                        </select>
+
                         <div class="mb-3"></div>
                         <div class="mb-3">
-                            <div class="form-check"><label class="form-check-label"><input class="form-check-input" type="checkbox">Confirmo que no soy una persona políticamente expuesta</label></div>
-                            <div class="form-check"><label class="form-check-label"><input class="form-check-input" type="checkbox">Estoy de acuerdo con los términos y condiciones</label></div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" id="checkPep" type="checkbox">Confirmo que no soy una persona políticamente expuesta</label>
+                                </div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" id="checkTerminos" type="checkbox">Estoy de acuerdo con los términos y condiciones</label>
+                                </div>
                         </div>
                         <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Sign Up</button></div>
                     </form>
