@@ -368,6 +368,43 @@ app.get('/admin/usuario', async (req, res) =>{
     })
 })
 
+// Modificar usuario
+
+app.get('/admin/modificarcategoria/:codigo', async (req, res) =>{
+    const idUsuario = req.params.codigo
+
+    const usuario = await db.Usuario.findOne({
+        where : {
+            id : idUsuario
+        }
+    })
+    res.render('usuario_update', {
+        usuario : usuario
+    })
+})
+
+app.post('/admin/modificarusuario', async (req, res) =>{
+    const idUsuario = req.body.categoria_id
+    const usuarioValidacion = req.body.usuario_estado
+
+    // 1. Obtener la categoria
+    const usuario = await db.Usuario.findOne({
+        where : {
+            id : idUsuario
+        }
+    })
+
+    // 2. Cambiar propiedades
+
+    usuario.estado = usuarioValidacion
+
+    // 3. Guardar
+
+    await Usuario.save()
+
+    res.redirect('/admin')
+})
+
 // Admin view
 
 app.get('/admin', (req, res) =>{
