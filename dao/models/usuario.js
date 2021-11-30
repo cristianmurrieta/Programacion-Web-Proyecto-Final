@@ -25,7 +25,8 @@ module.exports = (sequelize, DataTypes) => {
     provincia: DataTypes.STRING,
     departamento: DataTypes.STRING,
     pep: DataTypes.INTEGER,
-    estado: DataTypes.INTEGER
+    estado: DataTypes.INTEGER,
+    rol: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Usuario',

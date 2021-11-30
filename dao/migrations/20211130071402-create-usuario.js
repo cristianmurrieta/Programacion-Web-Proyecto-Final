@@ -44,6 +44,9 @@ module.exports = {
       estado: {
         type: Sequelize.INTEGER
       },
+      rol: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
