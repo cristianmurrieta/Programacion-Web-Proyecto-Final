@@ -164,6 +164,18 @@ app.post('/admin/juego_new', async (req, res) =>{
     res.redirect('/admin')
 })
 
+// Eliminar 
+
+app.get('/admin/eliminarjuego/:codigo', async (req, res) =>{
+    const idJuego = req.params.codigo
+    await db.Juego.destroy({
+        where: {
+            id : idJuego
+        }
+    })
+    res.redirect('/admin')
+})
+
 // Listen
 
 app.listen(PORT, ()=> {
