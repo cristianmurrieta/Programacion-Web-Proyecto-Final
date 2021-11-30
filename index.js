@@ -66,7 +66,7 @@ app.post('/admin/categoria_new', async (req, res)=>{
         nombre : categoriaNombre
     })
     
-    res.redirect('/admin')
+    res.redirect('/admin/categoria')
 })
 
 // Modificar categoria
@@ -103,7 +103,7 @@ app.post('/admin/modificarcategoria', async (req, res) =>{
 
     await categoria.save()
 
-    res.redirect('/admin')
+    res.redirect('/admin/categoria')
 })
 
 // Eliminar 
@@ -115,7 +115,7 @@ app.get('/admin/eliminarcategoria/:codigo', async (req, res) =>{
             id : idCategoria
         }
     })
-    res.redirect('/admin')
+    res.redirect('/admin/categoria')
 })
 
 // Admin mostrar juegos
@@ -161,7 +161,7 @@ app.post('/admin/juego_new', async (req, res) =>{
         categoriajuegoid : juegoCategoria
     })
 
-    res.redirect('/admin')
+    res.redirect('admin_juego')
 })
 
 // Eliminar 
@@ -173,7 +173,7 @@ app.get('/admin/eliminarjuego/:codigo', async (req, res) =>{
             id : idJuego
         }
     })
-    res.redirect('/admin')
+    res.redirect('admin_juego')
 })
 
 // Listen
