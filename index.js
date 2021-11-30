@@ -203,6 +203,35 @@ app.get('/admin/partida', async (req, res) =>{
     })
 })
 
+// Nueva partida
+
+app.get('/admin/partida_new', async (req, res) =>{
+
+    const tipoJuego = await db.Juego.findAll()
+
+    res.render('partida_new', {
+        tipoJuego : tipoJuego
+    })
+})
+
+app.post('/admin/partida_new', async (req, res) =>{
+    const partidaNombre = req.body.partida_tipo_id
+    const partidaFecha = req.body.partida_fecha
+    const partidaHora = req.body.partida_hora
+    const partidaDuracion = req.body.partida_duracion
+    const partidaEstado = req.body.partida_estado
+
+    await db.Partida.create({
+        tipoJuegoId : partidaNombre,
+        fecha : partidaFecha,
+        inicio : partidaHora,
+        duracion : partidaDuracion,
+        estado : partidaEstado
+    })
+
+    res.redirect('/admin/partida')
+})
+
 // Listen
 
 app.listen(PORT, ()=> {
