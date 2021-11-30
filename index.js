@@ -69,6 +69,42 @@ app.post('/admin/categoria_new', async (req, res)=>{
     res.redirect('/admin')
 })
 
+// Modificar categoria
+
+app.get('/admin/modificarcategoria/:codigo', async (req, res) =>{
+    const idCategoria = req.params.codigo
+
+    const categoria = await db.Categoriajuego.findOne({
+        where : {
+            id : idCategoria
+        }
+    })
+    res.render('categoria_update', {
+        categoria : categoria
+    })
+})
+
+app.post('/admin/modificarcategoria', async (req, res) =>{
+    const idCategoria = req.body.categoria_id
+    const categoriaNombre = req.body.categoria_nombre
+
+    // 1. Obtener la categoria
+    const categoria = await db.Categoriajuego.findOne({
+        where : {
+            id : idCategoria
+        }
+    })
+
+    // 2. Cambiar propiedades
+
+    categoria.nombre = categoriaNombre
+
+    // 3. Guardar
+
+    await categoria.save()
+
+    res.redirect('/admin')
+})
 
 // Listen
 
