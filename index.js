@@ -232,6 +232,72 @@ app.post('/admin/partida_new', async (req, res) =>{
     res.redirect('/admin/partida')
 })
 
+// Modificar partida y agregar equipos
+
+app.get('/admin/modificarpartida/:codigo', async (req, res)=>{
+    const idPartida = req.params.codigo
+
+    const partida = await db.Partida.findOne({
+        where : {
+            id : idPartida
+        }
+    })
+
+    const tipoJuego = await db.Juego.findAll()
+
+    const equiposRegistrados = await db.Equipo.findAll()
+
+    const partidaEquipos = await db.PartidaEquipo.findAll({
+        where : {
+            partidaId : idPartida
+        }
+    })
+    const arrEquiposEnPartida = []
+
+    if(partidaEquipos.length > 0){
+        for (let te of partidaEquipos){
+            const equipo = await  te.getEquipo()
+            arrEquiposEnPartida.push(equipo)
+        }
+    }
+    
+    res.render('partida_update', {
+        partida : partida,
+        tipoJuego : tipoJuego,
+        equipos: equiposRegistrados,
+        equiposEnPartida : arrEquiposEnPartida
+
+    })
+})
+
+app.post('/admin/modificarpartida', async (req, res) => {
+    const idPartida = req.body.partida_id
+    const tipoPartida = req.body.partida_tipo_id
+    const fechaPartida = req.body.partida_fecha
+    const inicioPartida = req.body.partida_hora
+    const duracionPartida = req.body.partida_duracion
+
+    // Obtenemos partida
+
+    const partida = await db.Partida.findOne({
+        where : {
+            id : idPartida
+        }
+    })
+
+    // Cambiar propiedades
+    partida.tipoJuegoId = tipoPartida
+    partida.fecha = fechaPartida
+    partida.inicio = inicioPartida
+    partida.duracion = duracionPartida
+
+    // Guardamos la info
+
+    await partida.save()
+
+    res.redirect('/admin')
+})
+
 // Listen
 
 app.listen(PORT, ()=> {
