@@ -345,6 +345,17 @@ app.post('/admin/banner_new', upload.single('banner_image'), async (req, res)=>{
     res.redirect('/admin/banner')
 })
 
+//Eliminar Imagen de la Base de Datos Banner
+
+app.get('/admin/eliminarbanner/:codigo', async (req, res) =>{
+    const idBanner = req.params.codigo
+    await db.Banner.destroy({
+        where: {
+            id : idBanner
+        }
+    })
+    res.redirect('/admin/banner')
+})
 
 // Listen
 
