@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="css/main.css" type="text/css"/>
+        <link rel="icon" href="/imagenes/casino.jpg" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <title>Casino Osito</title>
+    </head>
+    <body class="container">
+
+        <%- include('headeradmin') %>
+        
+        <h2>Formulario modificar categoria</h2>
+        <form method="post" action="/admin/modificarusuario">
+            <input type="hidden" name="usuario_id" value="<%= usuario.id %>">
+            <div class="mb-2">
+                <label class="form-label">Nombre:</label>
+                <input name="usuario_nombre" type="text" class="form-control" value="<%= usuario.nombre %>" disabled>
+            </div>
+            <div>
+                <label class="form-label">Apellido:</label>
+                <input name="usuario_apellido" type="text" class="form-control" value="<%= usuario.apellido %>" disabled>
+            </div>
+            <div>
+                <label class="form-label">DNI:</label>
+                <input name="usuario_dni" type="text" class="form-control" value="<%= usuario.dni %>" disabled>
+            </div>
+            <div>
+                <label class="form-label">Foto:</label>
+                <input name="usuario_foto" type="text" class="form-control" value="<%= usuario.foto %>" disabled>
+            </div>
+            <div>
+                <label class="form-label">Correo Electronico:</label>
+                <input name="usuario_correo" type="text" class="form-control" value="<%= usuario.correo %>" disabled>
+            </div>
+            <div>
+                <label class="form-label">Contrasena:</label>
+                <input name="usuario_contrasena" type="text" class="form-control" value="<%= usuario.contrasena %>" disabled>
+            </div>
+            <div>
+                <label class="form-label">Telefono:</label>
+                <input name="usuario_telefono" type="text" class="form-control" value="<%= usuario.telefono %>" disabled>
+            </div>
+            <div>
+                <label class="form-label">Direccion:</label>
+                <input name="usuario_direccion" type="text" class="form-control" value="<%= usuario.direccion %>" disabled>
+            </div>
+            <div>
+                <label class="form-label">Distrito:</label>
+                <input name="usuario_distrito" type="text" class="form-control" value="<%= usuario.distrito %>" disabled>
+            </div>
+            <div>
+                <label class="form-label">Provincia:</label>
+                <input name="usuario_provincia" type="text" class="form-control" value="<%= usuario.provincia %>" disabled>
+            </div>
+            <div>
+                <label class="form-label">Departamento:</label>
+                <input name="usuario_departamento" type="text" class="form-control" value="<%= usuario.departamento %>" disabled>
+            </div>
+            <div>
+                <label class="form-label">PEP:</label>
+                <input name="usuario_pep" type="text" class="form-control" value="<%= usuario.pep %>" disabled>
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Estado:</label>
+                <select name="usuario_estado" class="form-select">
+                    <option value="-2">---  Modificar Estado ---</option>
+                    <option value="-1">Dado de baja</option>
+                    <option value="0">Esperando validacion</option>
+                    <option value="1">Validado</option>
+                </select>
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Rol:</label>
+                <input name="usuario_rol" type="text" class="form-control" value="<%= usuario.rol %>" disabled>
+            </div>
+            
+            <button type="submit" class="btn btn-danger">Guardar</button>
+        </form>
+
+        <%- include('footeradmin') %>
+
+    </body>
+</html>

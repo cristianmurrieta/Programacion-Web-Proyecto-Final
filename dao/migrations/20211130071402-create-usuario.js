@@ -23,6 +23,9 @@ module.exports = {
       correo: {
         type: Sequelize.STRING
       },
+      contrasena: {
+        type: Sequelize.STRING
+      },
       telefono: {
         type: Sequelize.STRING
       },
@@ -43,6 +46,9 @@ module.exports = {
       },
       estado: {
         type: Sequelize.INTEGER
+      },
+      rol: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,

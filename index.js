@@ -37,7 +37,7 @@ app.set('view engine', 'ejs')
 // Index usuario 
 
 app.get('/', async (req, res) =>{
-    res.render('index')
+    res.render('admin_pov')
 })
 
 // Index usuario 
@@ -361,6 +361,54 @@ app.get('/admin/eliminarbanner/:codigo', async (req, res) =>{
         }
     })
     res.redirect('/admin/banner')
+})
+
+// Se muestra la lista de usuarios (view admin)
+
+app.get('/admin/usuario', async (req, res) =>{
+
+    const usuarios = await db.Usuario.findAll()
+
+    res.render('admin_usuario', {
+        usuarios : usuarios
+    })
+})
+
+// Modificar usuario
+
+app.get('/admin/modificarusuario/:codigo', async (req, res) =>{
+    const idUsuario = req.params.codigo
+
+    const usuario = await db.Usuario.findOne({
+        where : {
+            id : idUsuario
+        }
+    })
+    res.render('usuario_update', {
+        usuario : usuario
+    })
+})
+
+app.post('/admin/modificarusuario', async (req, res) =>{
+    const idUsuario = req.body.usuario_id
+    const usuarioValidacion = req.body.usuario_estado
+
+    // 1. Obtener la categoria
+    const usuario = await db.Usuario.findOne({
+        where : {
+            id : idUsuario
+        }
+    })
+
+    // 2. Cambiar propiedades
+
+    usuario.estado = usuarioValidacion
+
+    // 3. Guardar
+
+    await usuario.save()
+
+    res.redirect('/admin')
 })
 
 // Admin view

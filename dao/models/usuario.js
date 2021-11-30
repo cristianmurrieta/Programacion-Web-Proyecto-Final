@@ -19,13 +19,15 @@ module.exports = (sequelize, DataTypes) => {
     dni: DataTypes.STRING,
     foto: DataTypes.STRING,
     correo: DataTypes.STRING,
+    contrasena: DataTypes.STRING,
     telefono: DataTypes.STRING,
     direccion: DataTypes.STRING,
     distrito: DataTypes.STRING,
     provincia: DataTypes.STRING,
     departamento: DataTypes.STRING,
     pep: DataTypes.INTEGER,
-    estado: DataTypes.INTEGER
+    estado: DataTypes.INTEGER,
+    rol: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Usuario',
