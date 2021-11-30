@@ -310,8 +310,62 @@ app.get('/admin/eliminarpartida/:codigo', async (req, res) =>{
     res.redirect('/admin/partida')
 })
 
+// Mostrar banners 
+
+app.get('/admin/banner', async (req, res) =>{
+
+    const banners = await db.Banner.findAll()
+
+    res.render('admin_banner', {
+        banners : banners
+    })
+})
+
+//Agregar banner
+
+app.get('/admin/banner_new', (req, res)=>{
+    res.render('banner_new')
+})
+
+app.post('/admin/banner_new', upload.single('banner_image'), async (req, res)=>{
+    const imgNombre = req.body.banner_nombre
+    const imgurlCloud = req.body.banner_urlCloud
+    const imgUrl = req.body.banner_url
+    const imgEstado = req.body.banner_estado
+
+    console.log(req.file)
+
+    await db.Banner.create({
+        imageName : imgNombre,
+        urlCloud : imgurlCloud,
+        url : imgUrl,
+        estado : imgEstado
+    })
+
+    res.redirect('/admin/banner')
+})
+
+//Eliminar Imagen de la Base de Datos Banner
+
+app.get('/admin/eliminarbanner/:codigo', async (req, res) =>{
+    const idBanner = req.params.codigo
+    await db.Banner.destroy({
+        where: {
+            id : idBanner
+        }
+    })
+    res.redirect('/admin/banner')
+})
+
+// Admin view
+
+app.get('/admin', (req, res) =>{
+    res.render('admin_pov')
+})
+
 // Listen
 
 app.listen(PORT, ()=> {
     console.log(`El servidor se inicio correctamente en el puerto ${PORT}`)
 })
+
