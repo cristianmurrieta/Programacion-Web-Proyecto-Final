@@ -6,11 +6,30 @@
 }
 #botonLogin{
     color: rgba(224,217,217,0.9);
+    display: block;
 }
 
 #nav-inicio{
     color: rgba(224,217,217,0.9);
+    display: block;
 }
+
 #nav-servicios{
     color: rgba(224,217,217,0.9);
+    display: block;
 }
+
+#nav-logout{
+    color: rgba(224,217,217,0.9);
+    display: block;
+}
+#navbar-global{
+    background: rgb(34, 34, 34);border-radius: 20;
+    border-top-left-radius: 20;border-top-right-radius: 20;
+    border-bottom-right-radius: 20;
+    border-bottom-left-radius: 20;
+    border-style: none;padding-top: 0;
+    padding-bottom: 10px;
+    display: block;
+}
+
