@@ -363,6 +363,17 @@ app.get('/admin', (req, res) =>{
     res.render('admin_pov')
 })
 
+//test banner
+
+app.get('/banner', async (req,res) =>{
+    const banners = await db.Banner.findAll()
+
+    res.render('banner_test',{
+        banners : banners
+    })
+})
+
+
 // Listen
 
 app.listen(PORT, ()=> {
