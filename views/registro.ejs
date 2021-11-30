@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="index-assets/css/Footer-Dark.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
     <link rel="stylesheet" href="index-assets/css/styles.css">
-    <link rel="stylesheet" href="js/script-listas.js">
+    <script src="js/script-listas.js"></script>
 
 </head>
 
@@ -90,7 +90,7 @@
                         <div class="mb-3">
                             <input class="form-control" type="text" name="direccion" placeholder="Dirección">
                         </div>
-                        <select class="form-select" name="select-region" id="select-region" onchange="cambiaProvincias()">
+                        <select id="selectDepartamento" name="selectDepartamento" class="form-select" onchange="cambiaProvincia()" required>
                             <option value="">Seleccione la región</option>
                             <option value="Amazonas">Amazonas</option>
                             <option value="Ancash">Ancash</option>
@@ -117,19 +117,19 @@
                             <option value="Tacna">Tacna</option>
                             <option value="Tumbes">Tumbes</option>
                             <option value="Ucayali">Ucayali</option>
-                        </select>
+                          </select>
 
                         <div id="registro-espaciado4"></div>
 
-                        <select class="form-select" name="select-region" id="select-provincia" >
-                            <option value="">Seleccione su provincia</option>
-                        </select>
+                        <select id="selectProvincia" name="selectProvincia" class="form-select" onchange="cambiaDistrito()" required>
+                            <option value="">Seleccione la provincia</option>
+                          </select>
 
                         <div id="registro-espaciado4"></div>
 
-                        <select class="form-select" name="select-region" id="select-distrito">
-                            <option value="">Seleccione su región</option>
-                        </select>
+                        <select id="selectDistrito" name="selectDistrito" class="form-select" required>
+                            <option value="">Seleccione el distrito</option>
+                          </select>
 
                         <div class="mb-3"></div>
                         <div class="mb-3">
