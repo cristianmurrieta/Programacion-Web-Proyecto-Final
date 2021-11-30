@@ -118,6 +118,29 @@ app.get('/admin/eliminarcategoria/:codigo', async (req, res) =>{
     res.redirect('/admin')
 })
 
+// Admin mostrar juegos
+
+app.get('/admin/juego', async (req, res)=>{
+    const categorias = await db.Categoriajuego.findAll()
+    const juegos = await db.Juego.findAll()
+
+    // Agregamos el nombre de la categoria a lista
+    let nuevaListaJuegos = []
+    for (let juego of juegos){
+        const categoriaJuego = await juego.getCategoriajuego()
+        nuevaListaJuegos.push({
+            id : juego.id,
+            nombre : juego.nombre,
+            categoriaJuegoNombre : categoriaJuego.nombre
+        })
+    }
+
+    res.render('admin_juego', {
+        categorias : categorias,
+        juegos : nuevaListaJuegos
+    })
+})
+
 // Listen
 
 app.listen(PORT, ()=> {
