@@ -66,7 +66,7 @@ app.post('/admin/categoria_new', async (req, res)=>{
         nombre : categoriaNombre
     })
     
-    res.redirect('/admin')
+    res.redirect('/admin/categoria')
 })
 
 // Modificar categoria
@@ -103,7 +103,7 @@ app.post('/admin/modificarcategoria', async (req, res) =>{
 
     await categoria.save()
 
-    res.redirect('/admin')
+    res.redirect('/admin/categoria')
 })
 
 // Eliminar 
@@ -115,7 +115,7 @@ app.get('/admin/eliminarcategoria/:codigo', async (req, res) =>{
             id : idCategoria
         }
     })
-    res.redirect('/admin')
+    res.redirect('/admin/categoria')
 })
 
 // Admin mostrar juegos
@@ -161,7 +161,7 @@ app.post('/admin/juego_new', async (req, res) =>{
         categoriajuegoid : juegoCategoria
     })
 
-    res.redirect('/admin')
+    res.redirect('/admin/juego')
 })
 
 // Eliminar 
@@ -173,7 +173,34 @@ app.get('/admin/eliminarjuego/:codigo', async (req, res) =>{
             id : idJuego
         }
     })
-    res.redirect('/admin')
+    res.redirect('/admin/juego')
+})
+
+// Admin mostrar partidas
+
+app.get('/admin/partida', async (req, res) =>{
+
+    const juegos = await db.Juego.findAll()
+    const partidas = await db.Partida.findAll()
+
+     // Agregamos el nombre del juegon a lista
+     let nuevaListaPartidas = []
+    for(let partida of partidas){
+        const Juego = await partida.getJuego()
+        nuevaListaPartidas.push({
+            id : partida.id,
+            tipoJuegoNombre : Juego.nombre,
+            fecha : partida.fecha,
+            inicio : partida.inicio,
+            duracion : partida.duracion,
+            estado : partida.estado
+        })
+    }
+
+    res.render('admin_partida', {
+        juegos : juegos,
+        partidas : nuevaListaPartidas
+    })
 })
 
 // Listen
