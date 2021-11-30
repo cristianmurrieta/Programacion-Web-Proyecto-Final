@@ -295,7 +295,19 @@ app.post('/admin/modificarpartida', async (req, res) => {
 
     await partida.save()
 
-    res.redirect('/admin')
+    res.redirect('/admin/partida')
+})
+
+// Eliminar partida
+
+app.get('/admin/eliminarpartida/:codigo', async (req, res) =>{
+    const idPartida = req.params.codigo
+    await db.Partida.destroy({
+        where: {
+            id : idPartida
+        }
+    })
+    res.redirect('/admin/partida')
 })
 
 // Listen
