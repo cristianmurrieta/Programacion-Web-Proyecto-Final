@@ -65,6 +65,12 @@ app.get('/login', async (req, res) =>{
     res.render('todos_login')
 })
 
+// Login
+
+app.get('/registro', async (req, res) =>{
+    res.render('usuario_registro')
+})
+
 
 // Admin mostrar categorias
 
