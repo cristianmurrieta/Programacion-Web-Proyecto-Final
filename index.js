@@ -161,7 +161,7 @@ app.post('/admin/juego_new', async (req, res) =>{
         categoriajuegoid : juegoCategoria
     })
 
-    res.redirect('admin_juego')
+    res.redirect('/admin/juego')
 })
 
 // Eliminar 
@@ -173,7 +173,7 @@ app.get('/admin/eliminarjuego/:codigo', async (req, res) =>{
             id : idJuego
         }
     })
-    res.redirect('admin_juego')
+    res.redirect('/admin/juego')
 })
 
 // Listen
