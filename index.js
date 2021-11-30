@@ -40,6 +40,12 @@ app.get('/', async (req, res) =>{
     res.render('index')
 })
 
+// Index usuario 
+
+app.get('/nosotros', async (req, res) =>{
+    res.render('nosotros')
+})
+
 // Admin mostrar categorias
 
 app.get('/admin/categoria', async (req, res) =>{
