@@ -37,7 +37,7 @@ app.set('view engine', 'ejs')
 // Index usuario 
 
 app.get('/', async (req, res) =>{
-    res.render('index')
+    res.render('admin_pov')
 })
 
 // Admin mostrar categorias
