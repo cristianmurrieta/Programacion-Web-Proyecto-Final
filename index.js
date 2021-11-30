@@ -52,11 +52,19 @@ app.get('/reglas', async (req, res) =>{
     res.render('todos_reglas')
 })
 
-// Reglas
+// Términos
 
 app.get('/terminos', async (req, res) =>{
     res.render('todos_terminos')
 })
+
+
+// Login
+
+app.get('/login', async (req, res) =>{
+    res.render('todos_login')
+})
+
 
 // Admin mostrar categorias
 
@@ -67,6 +75,7 @@ app.get('/admin/categoria', async (req, res) =>{
         categorias : categorias,
     })
 })
+
 
 // Nueva Categoria
 // Mostrarmos view de nueva categoria 
