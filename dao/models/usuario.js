@@ -19,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     dni: DataTypes.STRING,
     foto: DataTypes.STRING,
     correo: DataTypes.STRING,
+    contrasena: DataTypes.STRING,
     telefono: DataTypes.STRING,
     direccion: DataTypes.STRING,
     distrito: DataTypes.STRING,

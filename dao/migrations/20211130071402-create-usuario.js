@@ -23,6 +23,9 @@ module.exports = {
       correo: {
         type: Sequelize.STRING
       },
+      contrasena: {
+        type: Sequelize.STRING
+      },
       telefono: {
         type: Sequelize.STRING
       },

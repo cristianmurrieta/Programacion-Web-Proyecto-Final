@@ -384,7 +384,7 @@ app.get('/admin/modificarusuario/:codigo', async (req, res) =>{
 })
 
 app.post('/admin/modificarusuario', async (req, res) =>{
-    const idUsuario = req.body.categoria_id
+    const idUsuario = req.body.usuario_id
     const usuarioValidacion = req.body.usuario_estado
 
     // 1. Obtener la categoria
@@ -400,7 +400,7 @@ app.post('/admin/modificarusuario', async (req, res) =>{
 
     // 3. Guardar
 
-    await Usuario.save()
+    await usuario.save()
 
     res.redirect('/admin')
 })
