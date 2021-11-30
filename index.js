@@ -370,7 +370,7 @@ app.get('/admin/usuario', async (req, res) =>{
 
 // Modificar usuario
 
-app.get('/admin/modificarcategoria/:codigo', async (req, res) =>{
+app.get('/admin/modificarusuario/:codigo', async (req, res) =>{
     const idUsuario = req.params.codigo
 
     const usuario = await db.Usuario.findOne({
