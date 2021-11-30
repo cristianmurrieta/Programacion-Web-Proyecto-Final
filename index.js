@@ -321,6 +321,31 @@ app.get('/admin/banner', async (req, res) =>{
     })
 })
 
+//Agregar banner
+
+app.get('/admin/banner_new', (req, res)=>{
+    res.render('banner_new')
+})
+
+app.post('/admin/banner_new', upload.single('banner_image'), async (req, res)=>{
+    const imgNombre = req.body.banner_nombre
+    const imgurlCloud = req.body.banner_urlCloud
+    const imgUrl = req.body.banner_url
+    const imgEstado = req.body.banner_estado
+
+    console.log(req.file)
+
+    await db.Banner.create({
+        imageName : imgNombre,
+        urlCloud : imgurlCloud,
+        url : imgUrl,
+        estado : imgEstado
+    })
+
+    res.redirect('/admin/banner')
+})
+
+
 // Listen
 
 app.listen(PORT, ()=> {
