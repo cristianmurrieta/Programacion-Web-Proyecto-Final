@@ -176,6 +176,33 @@ app.get('/admin/eliminarjuego/:codigo', async (req, res) =>{
     res.redirect('/admin/juego')
 })
 
+// Admin mostrar partidas
+
+app.get('/admin/partida', async (req, res) =>{
+
+    const juegos = await db.Juego.findAll()
+    const partidas = await db.Partida.findAll()
+
+     // Agregamos el nombre del juegon a lista
+     let nuevaListaPartidas = []
+    for(let partida of partidas){
+        const Juego = await partida.getJuego()
+        nuevaListaPartidas.push({
+            id : partida.id,
+            tipoJuegoNombre : Juego.nombre,
+            fecha : partida.fecha,
+            inicio : partida.inicio,
+            duracion : partida.duracion,
+            estado : partida.estado
+        })
+    }
+
+    res.render('admin_partida', {
+        juegos : juegos,
+        partidas : nuevaListaPartidas
+    })
+})
+
 // Listen
 
 app.listen(PORT, ()=> {
