@@ -1,12 +1,15 @@
 // Las regiones y provincias fueron extraídas de un código de uso abierto, fuente http://sazzdh.blogspot.com/2018/03/ubigeo-de-peru-en-javascript-provincias.html
 
-
-function cambiaProvimcias()
+function cambiaProvincia()
 {
   
-  var sel_departamento = document.getElementsByName("selectDepartamento")[0];
-  var sel_provincia = document.getElementsByName("selectProvincia")[0];
-  var sel_distrito = document.getElementsByName("selectDistrito")[0];
+    var sel_departamento = document.getElementById('selectDepartamento');
+    var sel_provincia = document.getElementById('selectProvincia');
+    var sel_distrito = document.getElementById('selectDistrito');
+
+
+console.log(sel_departamento, sel_provincia, sel_distrito);
+
   
  var opt_Amazonas = new Array ("Seleccione la Provincia", "Bagua", "Bongará", "Chachapoyas", "Condorcanqui","Luya","Rodríguez de Mendoza","Utcubamba");
  var opt_Amazonas_value = new Array ("Seleccione la Provincia", "Bagua", "Bongará", "Chachapoyas", "Condorcanqui","Luya","Rodríguez_de_Mendoza","Utcubamba");
