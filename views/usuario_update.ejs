@@ -17,51 +17,60 @@
             <input type="hidden" name="usuario_id" value="<%= ususario.id %>">
             <div class="mb-2">
                 <label class="form-label">Nombre:</label>
-                <input name="usuario_nombre" type="text" class="form-control" value="<%= usuario.nombre %>">
+                <input name="usuario_nombre" type="text" class="form-control" value="<%= usuario.nombre %>" disabled>
             </div>
             <div>
                 <label class="form-label">Apellido:</label>
-                <input name="usuario_apellido" type="text" class="form-control" value="<%= usuario.apellido %>">
+                <input name="usuario_apellido" type="text" class="form-control" value="<%= usuario.apellido %>" disabled>
             </div>
             <div>
                 <label class="form-label">DNI:</label>
-                <input name="usuario_dni" type="text" class="form-control" value="<%= usuario.dni %>">
+                <input name="usuario_dni" type="text" class="form-control" value="<%= usuario.dni %>" disabled>
             </div>
             <div>
                 <label class="form-label">Foto:</label>
-                <input name="usuario_foto" type="text" class="form-control" value="<%= usuario.foto %>">
+                <input name="usuario_foto" type="text" class="form-control" value="<%= usuario.foto %>" disabled>
             </div>
             <div>
                 <label class="form-label">Correo Electronico:</label>
-                <input name="usuario_correo" type="text" class="form-control" value="<%= usuario.correo %>">
+                <input name="usuario_correo" type="text" class="form-control" value="<%= usuario.correo %>" disabled>
             </div>
             <div>
                 <label class="form-label">Telefono:</label>
-                <input name="usuario_telefono" type="text" class="form-control" value="<%= usuario.telefono %>">
+                <input name="usuario_telefono" type="text" class="form-control" value="<%= usuario.telefono %>" disabled>
             </div>
             <div>
                 <label class="form-label">Direccion:</label>
-                <input name="usuario_direccion" type="text" class="form-control" value="<%= usuario.direccion %>">
+                <input name="usuario_direccion" type="text" class="form-control" value="<%= usuario.direccion %>" disabled>
             </div>
             <div>
                 <label class="form-label">Distrito:</label>
-                <input name="usuario_distrito" type="text" class="form-control" value="<%= usuario.distrito %>">
+                <input name="usuario_distrito" type="text" class="form-control" value="<%= usuario.distrito %>" disabled>
             </div>
             <div>
                 <label class="form-label">Provincia:</label>
-                <input name="usuario_provincia" type="text" class="form-control" value="<%= usuario.provincia %>">
+                <input name="usuario_provincia" type="text" class="form-control" value="<%= usuario.provincia %>" disabled>
             </div>
             <div>
                 <label class="form-label">Departamento:</label>
-                <input name="usuario_departamento" type="text" class="form-control" value="<%= usuario.departamento %>">
+                <input name="usuario_departamento" type="text" class="form-control" value="<%= usuario.departamento %>" disabled>
             </div>
             <div>
                 <label class="form-label">PEP:</label>
-                <input name="usuario_pep" type="text" class="form-control" value="<%= usuario.pep %>">
+                <input name="usuario_pep" type="text" class="form-control" value="<%= usuario.pep %>" disabled>
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Estado:</label>
+                <select name="usuario_estado" class="form-select">
+                    <option value="-2">---  Modificar Estado ---</option>
+                    <option value="-1">Dado de baja</option>
+                    <option value="0">Esperando validacion</option>
+                    <option value="1">Validado</option>
+                </select>
             </div>
             <div>
-                <label class="form-label">Estado:</label>
-                <input name="usuario_estado" type="text" class="form-control" value="<%= usuario.estado %>">
+                <label class="form-label">Rol:</label>
+                <input name="usuario_rol" type="text" class="form-control" value="<%= usuario.rol %>" disabled>
             </div>
             
             <button type="submit" class="btn btn-danger">Guardar</button>
