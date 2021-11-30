@@ -43,3 +43,24 @@
 #login-illustration{
     color: rgb(244, 71, 107);
 }
+
+#form-error{
+    display: none;
+}
+
+
+#registro1{
+    display: block;
+}
+
+#registro2{
+    display: none;
+}
+
+#registro3{
+    display: none;
+}
+
+#registro4{
+    display: none;
+}

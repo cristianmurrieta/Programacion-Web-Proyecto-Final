@@ -68,7 +68,7 @@ app.get('/login', async (req, res) =>{
 // Login
 
 app.get('/registro', async (req, res) =>{
-    res.render('usuario_registro')
+    res.render('registro')
 })
 
 
