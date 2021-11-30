@@ -141,6 +141,29 @@ app.get('/admin/juego', async (req, res)=>{
     })
 })
 
+// Nuevo juego
+
+app.get('/admin/juego_new', async (req, res) =>{
+    //Cargamos la categorias
+    const categoriaJuego = await db.Categoriajuego.findAll()
+    res.render('juego_new', {
+        //Con este nombre lo llamamos en el template
+        categoriaJuego : categoriaJuego
+    })
+})
+
+app.post('/admin/juego_new', async (req, res) =>{
+    const juegoNombre = req.body.juego_nombre
+    const juegoCategoria = req.body.juego_categoria_id
+
+    await db.Juego.create({
+        nombre : juegoNombre,
+        categoriajuegoid : juegoCategoria
+    })
+
+    res.redirect('/admin')
+})
+
 // Listen
 
 app.listen(PORT, ()=> {
