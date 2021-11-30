@@ -357,8 +357,15 @@ app.get('/admin/eliminarbanner/:codigo', async (req, res) =>{
     res.redirect('/admin/banner')
 })
 
+// Admin view
+
+app.get('/admin', (req, res) =>{
+    res.render('admin_pov')
+})
+
 // Listen
 
 app.listen(PORT, ()=> {
     console.log(`El servidor se inicio correctamente en el puerto ${PORT}`)
 })
+
