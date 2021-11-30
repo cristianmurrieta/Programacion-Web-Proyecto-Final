@@ -50,6 +50,26 @@ app.get('/admin/categoria', async (req, res) =>{
     })
 })
 
+// Nueva Categoria
+// Mostrarmos view de nueva categoria 
+
+app.get('/admin/categoria_new', (req, res) =>{
+    res.render('categoria_new')
+})
+
+// Realizamos post de nueva categoria
+
+app.post('/admin/categoria_new', async (req, res)=>{
+    const categoriaNombre = req.body.categoria_nombre
+
+    await db.Categoriajuego.create({
+        nombre : categoriaNombre
+    })
+    
+    res.redirect('/admin')
+})
+
+
 // Listen
 
 app.listen(PORT, ()=> {
