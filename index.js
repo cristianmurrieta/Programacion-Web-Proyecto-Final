@@ -357,6 +357,17 @@ app.get('/admin/eliminarbanner/:codigo', async (req, res) =>{
     res.redirect('/admin/banner')
 })
 
+// Se muestra la lista de usuarios (view admin)
+
+app.get('/admin/usuario', async (req, res) =>{
+
+    const usuarios = await db.Usuario.findAll()
+
+    res.render('admin_usuario', {
+        usuarios : usuarios
+    })
+})
+
 // Admin view
 
 app.get('/admin', (req, res) =>{
