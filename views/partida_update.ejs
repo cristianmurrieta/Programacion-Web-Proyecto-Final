@@ -32,59 +32,46 @@
                     </div>
                     <div>
                         <label class="form-label">Fecha:</label>
-                        <input value="<%= partida.fecha.toISOString().substring(0,10) %>" name="partida_fecha" type="date" class="form-control">
+                        <input value="<%= partida.fecha.toISOString().substring(0,10) %>" name="partida_fecha" type="date" class="form-control" disabled>
                     </div>
                     <div class="mt-2">
                         <label class="form-label">Hora Inicio:</label>
-                        <input value="<%= partida.inicio %>" name="partida_hora" type="time">
+                        <input value="<%= partida.inicio %>" name="partida_hora" type="time" disabled>
                     </div>
                     <div>
                         <label class="form-label">Duracion:</label>
-                        <input value="<%= partida.duracion %>" name="partida_duracion" type="text" class="form-control">
+                        <input value="<%= partida.duracion %>" name="partida_duracion" type="text" class="form-control" disabled>
+                    </div>
+                    <div>
+                        <label class="form-label">Primer Equipo:</label>
+                        <input value="<%= partida.equipoA %>" name="partida_equipoA" type="text" class="form-control">
+                    </div>
+                    <div>
+                        <label class="form-label">Factor primer equipo:</label>
+                        <input value="<%= partida.factorA %>" name="partida_factorA" type="text" class="form-control">
+                    </div>
+                    <div>
+                        <label class="form-label">Segundo Equipo:</label>
+                        <input value="<%= partida.equipoB %>" name="partida_equipoB" type="text" class="form-control">
+                    </div>
+                    <div>
+                        <label class="form-label">Factor segundo equipo:</label>
+                        <input value="<%= partida.factorB %>" name="partida_factorB" type="text" class="form-control">
+                    </div>
+                    <div>
+                        <label class="form-label">Factor Empate:</label>
+                        <input value="<%= partida.factorE %>" name="partida_factorEmpate" type="text" class="form-control">
                     </div>
                     <div class="mb-2">
                         <label class="form-label">Estado:</label>
                         <select name="partida_estado" class="form-select">
                             <option value="-1">--- Elegir una categoria ---</option>
-                            
                         </select>
-                    </div>
-        
+                    </div>      
                     <button type="submit" class="btn btn-danger">Guardar</button>
                 </form>
             </div>
-            <div class="col">
-                <!--Equipos registrados-->
-                <div>
-                    <form method="post" action="/admin/equipo/inscribir">
-                        <input type="hidden" name="inscripcion_partida_id" value="<%= partida.id %>">
-                        <select class="form-select" name="inscripcion_equipo_id">
-                            <option value="-1">--- Elegir su equipo ---</option>
-                            <% equipos.forEach( (equipo) => { %>
-                                <option value="<%= equipo.id %>"><%= equipo.nombre %></option>
-                            <% }) %>
-                        </select>
-                        <button class="btn btn-danger mt-2" type="submit">+</button>
-                    </form>
-                    <hr/>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>nombre</th>
-                                <th>accion</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% equiposEnPartida.forEach( (equipo) =>{ %>
-                                <td><%= equipo.nombre %></td>
-                                <td><a class="btn btn-danger mt-2" href="/admin/modificarpartida/delete/<% partida.id %>/<%= equipo.id %>">x</a></td>
-                            <% }) %>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
         </div>
-        
 
         <%- include('footeradmin') %>
 

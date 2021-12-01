@@ -40,6 +40,38 @@ app.get('/', async (req, res) =>{
     res.render('index')
 })
 
+// Nosotros
+
+app.get('/nosotros', async (req, res) =>{
+    res.render('todos_nosotros')
+})
+
+// Reglas
+
+app.get('/reglas', async (req, res) =>{
+    res.render('todos_reglas')
+})
+
+// Términos
+
+app.get('/terminos', async (req, res) =>{
+    res.render('todos_terminos')
+})
+
+
+// Login
+
+app.get('/login', async (req, res) =>{
+    res.render('todos_login')
+})
+
+// Login
+
+app.get('/registro', async (req, res) =>{
+    res.render('registro')
+})
+
+
 // Admin mostrar categorias
 
 app.get('/admin/categoria', async (req, res) =>{
@@ -49,6 +81,7 @@ app.get('/admin/categoria', async (req, res) =>{
         categorias : categorias,
     })
 })
+
 
 // Nueva Categoria
 // Mostrarmos view de nueva categoria 
@@ -193,6 +226,11 @@ app.get('/admin/partida', async (req, res) =>{
             fecha : partida.fecha,
             inicio : partida.inicio,
             duracion : partida.duracion,
+            equipoA : partida.equipoA,
+            factorA : partida.factorA,
+            equipoB : partida.equipoB,
+            factorB : partida.factorB,
+            factorEmpate : partida.factorEmpate,
             estado : partida.estado
         })
     }
@@ -277,37 +315,21 @@ app.get('/admin/modificarpartida/:codigo', async (req, res)=>{
 
     const tipoJuego = await db.Juego.findAll()
 
-    const equiposRegistrados = await db.Equipo.findAll()
 
-    const partidaEquipos = await db.PartidaEquipo.findAll({
-        where : {
-            partidaId : idPartida
-        }
-    })
-    const arrEquiposEnPartida = []
-
-    if(partidaEquipos.length > 0){
-        for (let te of partidaEquipos){
-            const equipo = await  te.getEquipo()
-            arrEquiposEnPartida.push(equipo)
-        }
-    }
     
     res.render('partida_update', {
         partida : partida,
-        tipoJuego : tipoJuego,
-        equipos: equiposRegistrados,
-        equiposEnPartida : arrEquiposEnPartida
-
+        tipoJuego : tipoJuego
     })
 })
 
 app.post('/admin/modificarpartida', async (req, res) => {
     const idPartida = req.body.partida_id
-    const tipoPartida = req.body.partida_tipo_id
-    const fechaPartida = req.body.partida_fecha
-    const inicioPartida = req.body.partida_hora
-    const duracionPartida = req.body.partida_duracion
+    const equipoA = req.body.partida_equipoA
+    const factorA = req.body.partida_factorA
+    const equipoB = req.body.partida_equipoB
+    const factorB = req.body.partida_factorB
+    const factorEmpate = req.body.partida_factorEmpate
 
     // Obtenemos partida
 
@@ -318,10 +340,12 @@ app.post('/admin/modificarpartida', async (req, res) => {
     })
 
     // Cambiar propiedades
-    partida.tipoJuegoId = tipoPartida
-    partida.fecha = fechaPartida
-    partida.inicio = inicioPartida
-    partida.duracion = duracionPartida
+    
+    partida.equipoA = equipoA
+    partida.factorA = factorA
+    partida.equipoB = equipoB
+    partida.factorB = factorB
+    partida.factorEmpate = factorEmpate
 
     // Guardamos la info
 
@@ -389,15 +413,77 @@ app.get('/admin/eliminarbanner/:codigo', async (req, res) =>{
     res.redirect('/admin/banner')
 })
 
+// Se muestra la lista de usuarios (view admin)
+
+app.get('/admin/usuario', async (req, res) =>{
+
+    const usuarios = await db.Usuario.findAll()
+
+    res.render('admin_usuario', {
+        usuarios : usuarios
+    })
+})
+
+// Modificar usuario
+
+app.get('/admin/modificarusuario/:codigo', async (req, res) =>{
+    const idUsuario = req.params.codigo
+
+    const usuario = await db.Usuario.findOne({
+        where : {
+            id : idUsuario
+        }
+    })
+    res.render('usuario_update', {
+        usuario : usuario
+    })
+})
+
+app.post('/admin/modificarusuario', async (req, res) =>{
+    const idUsuario = req.body.usuario_id
+    const usuarioValidacion = req.body.usuario_estado
+
+    // 1. Obtener la categoria
+    const usuario = await db.Usuario.findOne({
+        where : {
+            id : idUsuario
+        }
+    })
+
+    // 2. Cambiar propiedades
+
+    usuario.estado = usuarioValidacion
+
+    // 3. Guardar
+
+    await usuario.save()
+
+    res.redirect('/admin')
+})
+
 // Admin view
 
 app.get('/admin', (req, res) =>{
     res.render('admin_pov')
 })
 
+<<<<<<< HEAD
 app.get('/prueba', (req, res) =>{
     res.json({"hola":"que tal"})
 })
+=======
+//test banner
+
+app.get('/banner', async (req,res) =>{
+    const banners = await db.Banner.findAll()
+
+    res.render('banner_test',{
+        banners : banners
+    })
+})
+
+
+>>>>>>> 434a8ff493f98a6304733a24f5fae47f97821279
 // Listen
 
 app.listen(PORT, ()=> {

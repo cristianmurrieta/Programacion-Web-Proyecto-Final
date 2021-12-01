@@ -35,6 +35,11 @@
                     <th>Fecha</th>
                     <th>Hora Inicio</th>
                     <th>Duracion</th>
+                    <th>Equipo A</th>
+                    <th>Tasa A</th>
+                    <th>Equipo B</th>
+                    <th>Tasa B</th>
+                    <th>Tasa Empate</th>
                     <th>Estado</th>
                 </tr>
             </thead>
@@ -46,6 +51,11 @@
                         <td><%= partida.fecha.toISOString().substring(0,10) %></td>
                         <td><%= partida.inicio %></td>
                         <td><%= partida.duracion %></td>
+                        <td><%= partida.equipoA %></td>
+                        <td><%= partida.factorA %></td>
+                        <td><%= partida.equipoB %></td>
+                        <td><%= partida.factorB %></td>
+                        <td><%= partida.factorEmpate %></td>
                         <td><%if(partida.estado == 0 ){%>
                             Iniciado
                         <% } else if (partida.estado == 1) { %>
@@ -56,8 +66,8 @@
                             
                         </td>
                         <td>
-                            <a href="/admin/modificarpartida/<%= partida.id %>" onclick="return confirm('Seguro que deseas editar este elemento?');">Editar</a>
-                            <a href="/admin/eliminarpartida/<%= partida.id %>" onclick="return confirm('Seguro que deseas eliminar este elemento?');">Eliminar</a>
+                            <a href="/admin/modificarpartida/<%= partida.id %>">Editar</a>
+                            <a href="/admin/eliminarpartida/<%= partida.id %>">Eliminar</a>
                         </td>
                 </tr>    
                 <%})%>
