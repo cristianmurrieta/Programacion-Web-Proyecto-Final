@@ -121,11 +121,6 @@ function deslogear(){
 
 
 
-
-
-
-
-
 // Admin mostrar categorias
 
 app.get('/admin/categoria', async (req, res) =>{
