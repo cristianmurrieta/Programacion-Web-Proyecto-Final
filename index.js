@@ -70,6 +70,8 @@ app.get('/reglas', (req, res) =>{
     res.render('reglas')
 })
 
+
+
 // Iniciar sesión
 
 app.get('/iniciar-sesion', (req, res) =>{
@@ -293,6 +295,7 @@ app.get('/admin/partida', async (req, res) =>{
     })
 })
 
+// Filtrar Partidas
 
 app.get('/filtrarPartidas', async (req, res) =>{
 
@@ -323,7 +326,6 @@ app.get('/filtrarPartidas', async (req, res) =>{
     })
    
 })
-
 
 // Nueva partida
 
@@ -531,6 +533,37 @@ app.get('/banner', async (req,res) =>{
 
     res.render('banner_test',{
         banners : banners
+    })
+})
+
+// mostrar lista partida cliente
+
+app.get('/lista-partida', async (req,res) =>{
+    const juegos = await db.Juego.findAll()
+    const partidas = await db.Partida.findAll()
+
+     // Agregamos el nombre del juegon a lista
+     let nuevaListaPartidas = []
+    for(let partida of partidas){
+        const Juego = await partida.getJuego()
+        nuevaListaPartidas.push({
+            id : partida.id,
+            tipoJuegoNombre : Juego.nombre,
+            fecha : partida.fecha,
+            inicio : partida.inicio,
+            duracion : partida.duracion,
+            equipoA : partida.equipoA,
+            factorA : partida.factorA,
+            equipoB : partida.equipoB,
+            factorB : partida.factorB,
+            factorEmpate : partida.factorEmpate,
+            estado : partida.estado
+        })
+    }
+
+    res.render('lista-partida', {
+        juegos : juegos,
+        partidas : nuevaListaPartidas
     })
 })
 
