@@ -71,6 +71,18 @@ app.get('/registro', async (req, res) =>{
     res.render('registro')
 })
 
+// Iniciar sesión
+
+app.get('/iniciar-sesion', (req, res) =>{
+    if (req.session.username != undefined) {
+        req.session.lastpw = new Date().getTime()
+        res.redirect('/admin')
+    }else {
+        res.render('iniciar-sesion')
+    }
+})
+
+
 
 // Admin mostrar categorias
 
