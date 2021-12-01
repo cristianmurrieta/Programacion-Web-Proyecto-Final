@@ -21,6 +21,11 @@ module.exports = (sequelize, DataTypes) => {
     fecha: DataTypes.DATE,
     inicio: DataTypes.TIME,
     duracion: DataTypes.INTEGER,
+    equipoA : DataTypes.STRING,
+    factorA : DataTypes.FLOAT,
+    equipoB : DataTypes.STRING,
+    factorB : DataTypes.FLOAT,
+    factorEmpate : DataTypes.FLOAT,
     estado: DataTypes.INTEGER
   }, {
     sequelize,

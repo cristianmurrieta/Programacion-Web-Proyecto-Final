@@ -17,6 +17,21 @@ module.exports = {
       duracion: {
         type: Sequelize.INTEGER
       },
+      equipoA: {
+        type: Sequelize.STRING
+      },
+      factorA: {
+        type: Sequelize.FLOAT
+      },
+      equipoB: {
+        type: Sequelize.STRING
+      },
+      factorB: {
+        type: Sequelize.FLOAT
+      },
+      factorEmpate: {
+        type: Sequelize.FLOAT
+      },
       estado: {
         type: Sequelize.INTEGER
       },
