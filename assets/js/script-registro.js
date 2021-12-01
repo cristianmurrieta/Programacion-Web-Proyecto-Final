@@ -1,8 +1,8 @@
 
-registro-button1.addEventListener('click', (e) =>{
-    alert('gaaa');
-    mostrarElemento(1, 'registro4');
-    ocultarElemento(1, 'registro3');
+registroButton1.addEventListener('click', (e) =>{
+    console.log('xdddddddddddddddd');
+    mostrarElemento(1, 'registro2');
+    ocultarElemento(1, 'registro1');
     
     
   })

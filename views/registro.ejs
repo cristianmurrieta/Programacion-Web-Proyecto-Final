@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="index-assets/css/styles.css">
     <script src="js/script-listas.js"></script>
     <script src="js/script-display.js"></script>
-    <script src=""></script>
 
 </head>
 
@@ -38,6 +37,8 @@
             </ul>
         </div>
         <form>
+
+            <!--IGNORARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR-->
             <section id="form-error" class="register-photo">
                 <div class="form-container">
                     <form id="form1" method="post">
@@ -51,6 +52,7 @@
                     </form>
                 </div>
             </section>
+            <!--IGNORARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR-->
 
             <!--INICIO ------------------------------------------------------------------------------->
 
@@ -62,24 +64,35 @@
                         <div class="mb-3"><input class="form-control" type="text" name="apellido" placeholder="Apellido" required></div>
                         <div class="mb-3"></div>
                         <div class="mb-3"></div>
-                        <div class="mb-3"><button class="btn btn-primary d-block w-100" id="registro-button1" onclick="alert('botón de cs')" type="submit">Siguiente etapa</button>
+                        <div class="mb-3">
+                            <!--NO OLVIDAR PASAR EL ONCLICK A JS-->
+                            <a  class="btn btn-primary d-block w-100" id="registroButton1" onclick="document.getElementById('registro2').style.display = 'block', document.getElementById('registro1').style.display = 'none'">Siguiente etapa</a>
+                            <!-- <button class="btn btn-primary d-block w-100" id="registro-button1" onclick="alert('botón de cs')" type="submit">Siguiente etapa</button -->>
                         </div>
                         <a class="already" href="/login">¿Ya tienes una cuenta? Ingresa aquí</a>
                     </form>
                 </div>
             </section>
+
+
             <section class="register-photo" id="registro2">
                 <div class="form-container">
                     <form data-aos="fade">
                         <h2 class="text-center"><strong>Ingresa tu DNI e imagen de perfil</strong></h2>
-                        <div class="mb-3"><input class="form-control" type="email" name="DNI" placeholder="DNI" required></div>
+                        <div class="mb-3"><input class="form-control" type="text" name="DNI" placeholder="DNI" required></div>
                         <div class="mb-3"><input class="form-control" type="file" name="foto" placeholder="Foto" required></div>
                         <div class="mb-3"></div>
                         <div class="mb-3"></div>
-                        <div class="mb-3"><button class="btn btn-primary d-block w-100" id="registro-button2">Siguiente etapa</button></div>
+                        <div class="mb-3">
+                            <!--NO OLVIDAR PASAR EL ONCLICK A JS-->
+                            <a  class="btn btn-primary d-block w-100" id="registroButton2Back" onclick="document.getElementById('registro1').style.display = 'block', document.getElementById('registro2').style.display = 'none'">Anterior etapa</a>
+                            <a  class="btn btn-primary d-block w-100" id="registroButton2" onclick="document.getElementById('registro3').style.display = 'block', document.getElementById('registro2').style.display = 'none'">Siguiente etapa</a>
+                            <!-- <button class="btn btn-primary d-block w-100" id="registroButton2">Siguiente etapa</button></div> -->
                     </form>
                 </div>
             </section> 
+
+
             <section class="register-photo" id="registro3">
                 <div class="form-container">
                     <form data-aos="fade">
@@ -88,7 +101,12 @@
                         <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Contraseña" required></div>
                         <div class="mb-3"><input class="form-control" type="password" name="password-repeat" placeholder="Contraseña (repetir)" required></div>
                         <div class="mb-3"></div>
-                        <div class="mb-3"><button class="btn btn-primary d-block w-100" id="registro-button3">Siguiente etapa</button></div>
+                        <div class="mb-3">
+                            <!--NO OLVIDAR PASAR EL ONCLICK A JS-->
+                            <a  class="btn btn-primary d-block w-100" id="registroButton2" onclick="document.getElementById('registro2').style.display = 'block', document.getElementById('registro3').style.display = 'none'">Anterior etapa</a>
+                            <a  class="btn btn-primary d-block w-100" id="registroButton2" onclick="document.getElementById('registro4').style.display = 'block', document.getElementById('registro3').style.display = 'none'">Siguiente etapa</a>
+
+                            <!-- <button class="btn btn-primary d-block w-100" id="registroButton3">Siguiente etapa</button></div> -->
                     </form>
                 </div>
             </section>
@@ -151,7 +169,9 @@
                                     <input class="form-check-input" id="checkTerminos" type="checkbox">Estoy de acuerdo con los términos y condiciones</label>
                                 </div>
                         </div>
-                        <div class="mb-3"><button class="btn btn-primary d-block w-100"id="registro-button4" >Sign Up</button></div>
+                        <div class="mb-3">
+                            <!--Botón importante-->
+                            <button class="btn btn-primary d-block w-100"id="registroButton4" >Sign Up</button></div>
                     </form>
                 </div>
             </section>
