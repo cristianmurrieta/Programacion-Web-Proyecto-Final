@@ -70,8 +70,6 @@ app.get('/reglas', (req, res) =>{
     res.render('reglas')
 })
 
-
-
 // Iniciar sesión
 
 app.get('/iniciar-sesion', (req, res) =>{
@@ -116,15 +114,6 @@ function logear(){
 function deslogear(){
     localStorage.setItem('logged', 'false');
 }
-
-
-
-
-
-
-
-
-
 
 // Admin mostrar categorias
 
