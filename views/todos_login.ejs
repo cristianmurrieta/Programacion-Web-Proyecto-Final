@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>login</title>
+    <link rel="stylesheet" href="login-assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400|Roboto:300,400,700">
+    <link rel="stylesheet" href="login-assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="login-assets/css/Login-Form-Clean.css">
+
+
+    <link rel="stylesheet" href="index-assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="index-assets/css/Black-Navbar.css">
+    <link rel="stylesheet" href="index-assets/css/Footer-Dark.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="index-assets/css/styles.css">
+</head>
+
+<body>
+    
+    <%- include('header') %>
+
+    <section id="section-form" class="login-clean">
+        <form id="form-login" method="post">
+            <h2 class="visually-hidden">Login Form</h2>
+            <div class="illustration"><i class="icon ion-ios-navigate" id="login-illustration"></i></div>
+            <div class="mb-3"><input class="form-control" type="email" id="emailInput" name="email" placeholder="Email"></div>
+            <div class="mb-3"><input class="form-control" type="password" id="passwordInput" name="password" placeholder="Contraseña"></div>
+            <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Ingresar</button>
+            </div>
+            <a class="forgot" href="#">¿Olvidaste tu contraseña?</a>
+        </form>
+    </section>
+    <div></div>
+
+    <%- include('footer') %>
+
+    <script src="login-assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>registro</title>
+    <link rel="stylesheet" href="registro-assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400|Roboto:300,400,700">
+    <link rel="stylesheet" href="registro-https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="registro-assets/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="registro-assets/css/Steps-Progressbar.css">
+
+    <link rel="stylesheet" href="index-assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="index-assets/css/Black-Navbar.css">
+    <link rel="stylesheet" href="index-assets/css/Footer-Dark.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="index-assets/css/styles.css">
+    <script src="js/script-listas.js"></script>
+
+</head>
+
+<body>
+
+
+    <%- include('header') %>
+
+    <div>
+        <div class="steps-progressbar">
+            <ul>
+                <li class="previous">Item 1</li>
+                <li class="active">Item 2</li>
+                <li>Item 3</li>
+                <li>Item 4</li>
+            </ul>
+        </div>
+        <form>
+            <section id="form-error" class="register-photo">
+                <div class="form-container">
+                    <form id="form1" method="post">
+                        <h2 class="text-center"><strong>Regístrate con tu nombre y apellido</strong></h2>
+                        <div class="mb-3"><input class="form-control" type="text" name="nombre" placeholder="Nombre" autocomplete="on" autofocus=""></div>
+                        <div class="mb-3"><input class="form-control" type="text" name="apellido" placeholder="Apellido" autocomplete="on"></div>
+                        <div class="mb-3"></div>
+                        <div class="mb-3"></div>
+                        <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Siguiente etapa</button></div><a class="already" href="#">¿Ya tienes una cuenta? Ingresa aquí</a>
+                    </form>
+                </div>
+            </section>
+            <section class="register-photo" id="registro1">
+                <div class="form-container">
+                    <form data-aos="fade" method="post">
+                        <h2 class="text-center"><strong>Regístrate con tu nombre y apellido</strong><br></h2>
+                        <div class="mb-3"><input class="form-control" type="email" name="nombre" placeholder="Nombre"></div>
+                        <div class="mb-3"><input class="form-control" type="password" name="apellido" placeholder="Apellido"></div>
+                        <div class="mb-3"></div>
+                        <div class="mb-3"></div>
+                        <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Siguiente etapa</button></div><a class="already" href="#">¿Ya tienes una cuenta? Ingresa aquí</a>
+                    </form>
+                </div>
+            </section>
+            <section class="register-photo" id="registro2">
+                <div class="form-container">
+                    <form data-aos="fade" method="post">
+                        <h2 class="text-center"><strong>Ingresa tu DNI e imagen de perfil</strong></h2>
+                        <div class="mb-3"><input class="form-control" type="email" name="DNI" placeholder="DNI"></div>
+                        <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Foto"></div>
+                        <div class="mb-3"></div>
+                        <div class="mb-3"></div>
+                        <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Siguiente etapa</button></div>
+                    </form>
+                </div>
+            </section>
+            <section class="register-photo" id="registro3">
+                <div class="form-container">
+                    <form data-aos="fade" method="post">
+                        <h2 class="text-center"><strong>Ingresa tu correo y contraseña</strong></h2>
+                        <div class="mb-3"><input class="form-control" type="email" name="email" placeholder="Email"></div>
+                        <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Contraseña"></div>
+                        <div class="mb-3"><input class="form-control" type="password" name="password-repeat" placeholder="Contraseña (repetir)"></div>
+                        <div class="mb-3"></div>
+                        <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Siguiente etapa</button></div>
+                    </form>
+                </div>
+            </section>
+            <section class="register-photo" id="registro4">
+                <div class="form-container">
+                    <form data-aos="fade" method="post">
+                        <h2 class="text-center"><strong>Ingresa tu dirección</strong></h2>
+                        <div class="mb-3">
+                            <input class="form-control" type="text" name="direccion" placeholder="Dirección">
+                        </div>
+                        <select id="selectDepartamento" name="selectDepartamento" class="form-select" onchange="cambiaProvincia()" required>
+                            <option value="">Seleccione la región</option>
+                            <option value="Amazonas">Amazonas</option>
+                            <option value="Ancash">Ancash</option>
+                            <option value="Apurímac">Apurímac</option>
+                            <option value="Arequipa">Arequipa</option>
+                            <option value="Ayacucho">Ayacucho</option>
+                            <option value="Cajamarca">Cajamarca</option>
+                            <option value="Callao">Callao</option>
+                            <option value="Cuzco">Cuzco </option>
+                            <option value="Huancavelica">Huancavelica</option>
+                            <option value="Huánuco">Huánuco</option>
+                            <option value="Ica">Ica</option>
+                            <option value="Junín">Junín</option>
+                            <option value="La_Libertad">La Libertad</option>
+                            <option value="Lambayeque">Lambayeque</option>
+                            <option value="Lima">Lima</option>
+                            <option value="Loreto">Loreto</option>
+                            <option value="Madre_de_Dios">Madre de Dios</option>
+                            <option value="Moquegua">Moquegua</option>
+                            <option value="Pasco">Pasco</option>
+                            <option value="Piura">Piura</option>
+                            <option value="Puno">Puno</option>
+                            <option value="San_Martín">San Martín</option>
+                            <option value="Tacna">Tacna</option>
+                            <option value="Tumbes">Tumbes</option>
+                            <option value="Ucayali">Ucayali</option>
+                          </select>
+
+                        <div id="registro-espaciado4"></div>
+
+                        <select id="selectProvincia" name="selectProvincia" class="form-select" onchange="cambiaDistrito()" required>
+                            <option value="">Seleccione la provincia</option>
+                          </select>
+
+                        <div id="registro-espaciado4"></div>
+
+                        <select id="selectDistrito" name="selectDistrito" class="form-select" required>
+                            <option value="">Seleccione el distrito</option>
+                          </select>
+
+                        <div class="mb-3"></div>
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" id="checkPep" type="checkbox">Confirmo que no soy una persona políticamente expuesta</label>
+                                </div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" id="checkTerminos" type="checkbox">Estoy de acuerdo con los términos y condiciones</label>
+                                </div>
+                        </div>
+                        <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Sign Up</button></div>
+                    </form>
+                </div>
+            </section>
+        </form>
+    </div>
+    
+    <%- include('footer') %>
+
+    <script src="registro-assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="registro-assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+</body>
+
+</html>

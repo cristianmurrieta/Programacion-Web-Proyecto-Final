@@ -37,8 +37,40 @@ app.set('view engine', 'ejs')
 // Index usuario 
 
 app.get('/', async (req, res) =>{
-    res.render('admin_pov')
+    res.render('index')
 })
+
+// Nosotros
+
+app.get('/nosotros', async (req, res) =>{
+    res.render('todos_nosotros')
+})
+
+// Reglas
+
+app.get('/reglas', async (req, res) =>{
+    res.render('todos_reglas')
+})
+
+// Términos
+
+app.get('/terminos', async (req, res) =>{
+    res.render('todos_terminos')
+})
+
+
+// Login
+
+app.get('/login', async (req, res) =>{
+    res.render('todos_login')
+})
+
+// Login
+
+app.get('/registro', async (req, res) =>{
+    res.render('registro')
+})
+
 
 // Admin mostrar categorias
 
@@ -49,6 +81,7 @@ app.get('/admin/categoria', async (req, res) =>{
         categorias : categorias,
     })
 })
+
 
 // Nueva Categoria
 // Mostrarmos view de nueva categoria 
