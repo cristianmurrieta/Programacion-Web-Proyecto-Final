@@ -203,6 +203,38 @@ app.get('/admin/partida', async (req, res) =>{
     })
 })
 
+
+app.get('/filtrarPartidas', async (req, res) =>{
+
+    var dt = req.query.dt
+    const juegos = await db.Juego.findAll()
+    const partidas = await db.Partida.findAll({
+        where: {
+            estado: dt
+        }
+      })
+      let nuevaListaPartidas = []
+      for(let partida of partidas){
+          const Juego = await partida.getJuego()
+          nuevaListaPartidas.push({
+              id : partida.id,
+              tipoJuegoNombre : Juego.nombre,
+              fecha : partida.fecha,
+              inicio : partida.inicio,
+              duracion : partida.duracion,
+              estado : partida.estado
+          })
+      }
+
+     //res.send(partidas)
+     res.render('admin_partida', {
+        juegos : juegos,
+        partidas : nuevaListaPartidas
+    })
+   
+})
+
+
 // Nueva partida
 
 app.get('/admin/partida_new', async (req, res) =>{
@@ -363,6 +395,9 @@ app.get('/admin', (req, res) =>{
     res.render('admin_pov')
 })
 
+app.get('/prueba', (req, res) =>{
+    res.json({"hola":"que tal"})
+})
 // Listen
 
 app.listen(PORT, ()=> {
