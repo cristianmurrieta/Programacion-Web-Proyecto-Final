@@ -71,6 +71,18 @@ app.get('/registro', async (req, res) =>{
     res.render('registro')
 })
 
+// Iniciar sesión
+
+app.get('/iniciar-sesion', (req, res) =>{
+    if (req.session.username != undefined) {
+        req.session.lastpw = new Date().getTime()
+        res.redirect('/admin')
+    }else {
+        res.render('iniciar-sesion')
+    }
+})
+
+
 
 // Admin mostrar categorias
 
@@ -240,6 +252,38 @@ app.get('/admin/partida', async (req, res) =>{
         partidas : nuevaListaPartidas
     })
 })
+
+
+app.get('/filtrarPartidas', async (req, res) =>{
+
+    var dt = req.query.dt
+    const juegos = await db.Juego.findAll()
+    const partidas = await db.Partida.findAll({
+        where: {
+            estado: dt
+        }
+      })
+      let nuevaListaPartidas = []
+      for(let partida of partidas){
+          const Juego = await partida.getJuego()
+          nuevaListaPartidas.push({
+              id : partida.id,
+              tipoJuegoNombre : Juego.nombre,
+              fecha : partida.fecha,
+              inicio : partida.inicio,
+              duracion : partida.duracion,
+              estado : partida.estado
+          })
+      }
+
+     //res.send(partidas)
+     res.render('admin_partida', {
+        juegos : juegos,
+        partidas : nuevaListaPartidas
+    })
+   
+})
+
 
 // Nueva partida
 
@@ -435,6 +479,11 @@ app.get('/admin', (req, res) =>{
     res.render('admin_pov')
 })
 
+ 
+app.get('/prueba', (req, res) =>{
+    res.json({"hola":"que tal"})
+})
+
 //test banner
 
 app.get('/banner', async (req,res) =>{
@@ -444,6 +493,7 @@ app.get('/banner', async (req,res) =>{
         banners : banners
     })
 })
+
 
 
 // Listen

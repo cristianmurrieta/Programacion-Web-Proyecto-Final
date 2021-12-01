@@ -2,9 +2,10 @@
 <html lang="en">
 
 <head>
+    <link rel="icon" href="imagenes/casino.ico">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>registro</title>
+    <title>Registro</title>
     <link rel="stylesheet" href="registro-assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400|Roboto:300,400,700">
     <link rel="stylesheet" href="registro-https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
@@ -17,6 +18,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
     <link rel="stylesheet" href="index-assets/css/styles.css">
     <script src="js/script-listas.js"></script>
+    <script src="js/script-display.js"></script>
+    <script src=""></script>
 
 </head>
 
@@ -43,49 +46,55 @@
                         <div class="mb-3"><input class="form-control" type="text" name="apellido" placeholder="Apellido" autocomplete="on"></div>
                         <div class="mb-3"></div>
                         <div class="mb-3"></div>
-                        <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Siguiente etapa</button></div><a class="already" href="#">¿Ya tienes una cuenta? Ingresa aquí</a>
+                        <div class="mb-3"><button class="btn btn-primary d-block w-100"  type="submit">Siguiente etapa</button></div>
+                        <a class="already" href="/login">¿Ya tienes una cuenta? Ingresa aquí</a>
                     </form>
                 </div>
             </section>
+
+            <!--INICIO ------------------------------------------------------------------------------->
+
             <section class="register-photo" id="registro1">
                 <div class="form-container">
-                    <form data-aos="fade" method="post">
+                    <form data-aos="fade" >
                         <h2 class="text-center"><strong>Regístrate con tu nombre y apellido</strong><br></h2>
-                        <div class="mb-3"><input class="form-control" type="email" name="nombre" placeholder="Nombre"></div>
-                        <div class="mb-3"><input class="form-control" type="password" name="apellido" placeholder="Apellido"></div>
+                        <div class="mb-3"><input class="form-control" type="text" name="nombre" placeholder="Nombre" required></div>
+                        <div class="mb-3"><input class="form-control" type="text" name="apellido" placeholder="Apellido" required></div>
                         <div class="mb-3"></div>
                         <div class="mb-3"></div>
-                        <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Siguiente etapa</button></div><a class="already" href="#">¿Ya tienes una cuenta? Ingresa aquí</a>
+                        <div class="mb-3"><button class="btn btn-primary d-block w-100" id="registro-button1" onclick="alert('botón de cs')" type="submit">Siguiente etapa</button>
+                        </div>
+                        <a class="already" href="/login">¿Ya tienes una cuenta? Ingresa aquí</a>
                     </form>
                 </div>
             </section>
             <section class="register-photo" id="registro2">
                 <div class="form-container">
-                    <form data-aos="fade" method="post">
+                    <form data-aos="fade">
                         <h2 class="text-center"><strong>Ingresa tu DNI e imagen de perfil</strong></h2>
-                        <div class="mb-3"><input class="form-control" type="email" name="DNI" placeholder="DNI"></div>
-                        <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Foto"></div>
+                        <div class="mb-3"><input class="form-control" type="email" name="DNI" placeholder="DNI" required></div>
+                        <div class="mb-3"><input class="form-control" type="file" name="foto" placeholder="Foto" required></div>
                         <div class="mb-3"></div>
                         <div class="mb-3"></div>
-                        <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Siguiente etapa</button></div>
+                        <div class="mb-3"><button class="btn btn-primary d-block w-100" id="registro-button2">Siguiente etapa</button></div>
                     </form>
                 </div>
-            </section>
+            </section> 
             <section class="register-photo" id="registro3">
                 <div class="form-container">
-                    <form data-aos="fade" method="post">
+                    <form data-aos="fade">
                         <h2 class="text-center"><strong>Ingresa tu correo y contraseña</strong></h2>
-                        <div class="mb-3"><input class="form-control" type="email" name="email" placeholder="Email"></div>
-                        <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Contraseña"></div>
-                        <div class="mb-3"><input class="form-control" type="password" name="password-repeat" placeholder="Contraseña (repetir)"></div>
+                        <div class="mb-3"><input class="form-control" type="email" name="email" placeholder="Email" required></div>
+                        <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Contraseña" required></div>
+                        <div class="mb-3"><input class="form-control" type="password" name="password-repeat" placeholder="Contraseña (repetir)" required></div>
                         <div class="mb-3"></div>
-                        <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Siguiente etapa</button></div>
+                        <div class="mb-3"><button class="btn btn-primary d-block w-100" id="registro-button3">Siguiente etapa</button></div>
                     </form>
                 </div>
             </section>
-            <section class="register-photo" id="registro4">
+            <section class="register-photo">
                 <div class="form-container">
-                    <form data-aos="fade" method="post">
+                    <form data-aos="fade" id="registro4">
                         <h2 class="text-center"><strong>Ingresa tu dirección</strong></h2>
                         <div class="mb-3">
                             <input class="form-control" type="text" name="direccion" placeholder="Dirección">
@@ -142,7 +151,7 @@
                                     <input class="form-check-input" id="checkTerminos" type="checkbox">Estoy de acuerdo con los términos y condiciones</label>
                                 </div>
                         </div>
-                        <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Sign Up</button></div>
+                        <div class="mb-3"><button class="btn btn-primary d-block w-100"id="registro-button4" >Sign Up</button></div>
                     </form>
                 </div>
             </section>

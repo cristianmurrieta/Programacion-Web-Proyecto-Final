@@ -50,7 +50,7 @@
 
 
 #registro1{
-    display: none;
+    display: block;
 }
 
 #registro2{
@@ -62,7 +62,7 @@
 }
 
 #registro4{
-    display: block;
+    display: none;
 }
 
 #registro-espaciado4{

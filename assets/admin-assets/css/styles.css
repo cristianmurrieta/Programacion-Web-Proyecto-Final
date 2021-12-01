@@ -1,0 +1,41 @@
+#categoJuegos{
+    background: var(--bs-orange);
+}
+
+#juegos{
+    background: var(--bs-green);
+}
+#banners{
+    background: var(--bs-cyan);
+}
+
+#usuarios{
+    background: var(--bs-red);
+}
+
+#equipos{
+    background: rgb(238,20,151);
+}
+
+
+
+
+
+#ico-categoJuegos{
+    color: var(--bs-orange);
+}
+
+#ico-juegos{
+    color: var(--bs-green);
+}
+#ico-banners{
+    color: var(--bs-cyan);
+}
+
+#ico-usuarios{
+    color: var(--bs-red);
+}
+
+#ico-equipos{
+    color: rgb(238,20,151);
+}
