@@ -64,6 +64,36 @@ app.get('/registro', async (req, res) =>{
     res.render('registro')
 })
 
+app.post('/registro', async (req, res) =>{
+    const usuarioNombre = req.body.nombre
+    const usuarioApellido = req.body.apellido
+    const usuarioDni = req.body.dni
+    const usuarioCorreo = req.body.email
+    const usuarioContrasena = req.body.password
+    const usuarioTelefono = req.body.telefono
+    const usuarioDireccion = req.body.direccion
+    const usuarioDepartamento = req.body.selectDepartamento
+    const usuarioProvincia = req.body.selectProvincia
+    const ususarioDistrito = req.body.selectDistrito
+    //const ususarioPep = req.body.usuario_pep
+    
+    await db.Usuario.create({
+        nombre : usuarioNombre,
+        apellido : usuarioApellido,
+        dni : usuarioDni,
+        correo : usuarioCorreo,
+        contrasena : usuarioContrasena,
+        telefono : usuarioTelefono,
+        direccion : usuarioDireccion,
+        distrito: usuarioDepartamento,
+        provincia: usuarioProvincia,
+        departamento: ususarioDistrito,
+        //pep : ususarioPep
+    })
+
+    res.redirect('/admin')
+})
+
 // Reglas
 
 app.get('/reglas', (req, res) =>{
@@ -555,8 +585,6 @@ app.get('/lista-partida', async (req,res) =>{
         partidas : nuevaListaPartidas
     })
 })
-
-
 
 // Listen
 
