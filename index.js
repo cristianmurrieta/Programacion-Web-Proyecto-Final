@@ -479,11 +479,11 @@ app.get('/admin', (req, res) =>{
     res.render('admin_pov')
 })
 
-<<<<<<< HEAD
+ 
 app.get('/prueba', (req, res) =>{
     res.json({"hola":"que tal"})
 })
-=======
+
 //test banner
 
 app.get('/banner', async (req,res) =>{
@@ -495,7 +495,7 @@ app.get('/banner', async (req,res) =>{
 })
 
 
->>>>>>> 434a8ff493f98a6304733a24f5fae47f97821279
+
 // Listen
 
 app.listen(PORT, ()=> {
