@@ -28,7 +28,7 @@
     <%- include('header') %>
 
     <div>
-        <form>
+        <form method="post" action="/registro">
 
             <!--IGNORARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR-->
             <section id="form-error" class="register-photo">
@@ -71,7 +71,7 @@
                 <div class="form-container">
                     <form data-aos="fade">
                         <h2 class="text-center"><strong>Ingresa tu DNI e imagen de perfil</strong></h2>
-                        <div class="mb-3"><input class="form-control" type="text" name="DNI" placeholder="DNI" required></div>
+                        <div class="mb-3"><input class="form-control" type="text" name="dni" placeholder="dni" required></div>
                         <div class="mb-3"><input class="form-control" type="file" name="foto" placeholder="Foto" required></div>
                         <div class="mb-3"></div>
                         <div class="mb-3"></div>
@@ -92,6 +92,7 @@
                         <div class="mb-3"><input class="form-control" type="email" name="email" placeholder="Email" required></div>
                         <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Contraseña" required></div>
                         <div class="mb-3"><input class="form-control" type="password" name="password-repeat" placeholder="Contraseña (repetir)" required></div>
+                        <div class="mb-3"><input class="form-control" type="text" name="telefono" placeholder="Celular" required></div>
                         <div class="mb-3"></div>
                         <div class="mb-3">
                             <!--NO OLVIDAR PASAR EL ONCLICK A JS-->
@@ -163,7 +164,7 @@
                         </div>
                         <div class="mb-3">
                             <!--Botón importante-->
-                            <button class="btn btn-primary d-block w-100"id="registroButton4" >Sign Up</button></div>
+                            <button class="btn btn-primary d-block w-100"id="registroButton4" type="submit" >Sign Up</button></div>
                     </form>
                 </div>
             </section>
