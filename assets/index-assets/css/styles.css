@@ -19,7 +19,11 @@
     display: block;
 }
 
-#nav-logout{
+#navLogout{
+    color: rgba(224,217,217,0.9);
+    display: block;
+}
+#navOpciones{
     color: rgba(224,217,217,0.9);
     display: block;
 }

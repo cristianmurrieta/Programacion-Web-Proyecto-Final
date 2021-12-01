@@ -58,17 +58,16 @@ app.get('/terminos', async (req, res) =>{
     res.render('todos_terminos')
 })
 
-
-// Login
-
-app.get('/login', async (req, res) =>{
-    res.render('todos_login')
-})
-
 // Login
 
 app.get('/registro', async (req, res) =>{
     res.render('registro')
+})
+
+// Reglas
+
+app.get('/reglas', (req, res) =>{
+    res.render('reglas')
 })
 
 // Iniciar sesión
@@ -78,9 +77,50 @@ app.get('/iniciar-sesion', (req, res) =>{
         req.session.lastpw = new Date().getTime()
         res.redirect('/admin')
     }else {
-        res.render('iniciar-sesion')
+        res.render('todos_login')
     }
 })
+
+// Iniciar sesión
+
+app.post('/iniciar-sesion', async (req, res) => {
+
+    const username = req.body.email
+    const password = req.body.password
+
+    console.log(username)
+    console.log(password)
+
+    const usuario = await db.Usuario.findOne({
+        where : {
+            correo : username
+        }
+    })
+
+    if(username == usuario.correo && password ==  usuario.contrasena){
+        req.session.username = username // guardar variable en sesion
+        res.redirect('/admin')
+    }else{
+        res.redirect('/')
+    }
+
+})
+
+function logear(){
+    localStorage.setItem('logged', 'false');
+    console.log('logeado')
+}
+
+function deslogear(){
+    localStorage.setItem('logged', 'false');
+}
+
+
+
+
+
+
+
 
 
 

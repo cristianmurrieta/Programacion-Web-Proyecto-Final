@@ -17,6 +17,10 @@
     <link rel="stylesheet" href="index-assets/css/Footer-Dark.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
     <link rel="stylesheet" href="index-assets/css/styles.css">
+
+    <script src="js/script-comprobar-login.js"></script>
+    <script src="js/script-login.js"></script>
+
 </head>
 
 <body>
@@ -24,12 +28,14 @@
     <%- include('header') %>
 
     <section id="section-form" class="login-clean">
-        <form id="form-login" method="post">
+        <form id="form-login" method="post" action="/iniciar-sesion">
             <h2 class="visually-hidden">Login Form</h2>
             <div class="illustration"><i class="icon ion-ios-navigate" id="login-illustration"></i></div>
             <div class="mb-3"><input class="form-control" type="email" id="emailInput" name="email" placeholder="Email"></div>
             <div class="mb-3"><input class="form-control" type="password" id="passwordInput" name="password" placeholder="Contraseña"></div>
-            <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Ingresar</button>
+            <div class="mb-3">
+                <!-- <a class="btn btn-primary d-block w-100" type="submit" id="loginIngresar">Ingresar</a> -->
+                <button class="btn btn-primary d-block w-100" type="submit" onclick="logear(), console.log('gaaaa')" id="loginIngresar">Ingresar</button>
             </div>
             <a class="forgot" href="#">¿Olvidaste tu contraseña?</a>
         </form>

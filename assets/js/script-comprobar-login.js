@@ -3,8 +3,9 @@
 
 document.addEventListener('DOMContentLoaded', (event) => {
     var logged = localStorage.getItem('logged');
+    console.log(logged);
     if(logged == 'true'){
-        document.getElementById('navOpciones').style.display = 'none';
-        document.getElementById('navLogout').style.display = 'none';
+        document.getElementById('nav-opciones').style.display = 'none';
+        document.getElementById('nav-logout').style.display = 'none';
     }
 })
