@@ -1,42 +1,103 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8"/>
-        <link rel="icon" href="/imagenes/casino.jpg" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-        <title>Casino Osito</title>
-    </head>
-    <body class="container-fluid">
+<html lang="en">
 
-        <%- include('headeradmin') %>
+<head>
+        	
+    <link rel="icon"  href="imagenes/casino.ico">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="index-assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400|Roboto:300,400,700">
+    <link rel="stylesheet" href="index-assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="index-assets/css/Black-Navbar.css">
+    <link rel="stylesheet" href="index-assets/css/Footer-Dark.css">
+    <link rel="stylesheet" href="index-assets/css/Highlight-Clean.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="index-assets/css/Simple-Slider.css">
+    <link rel="stylesheet" href="index-assets/css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <title>Administrador</title>
+    <link rel="stylesheet" href="admin-assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="admin-assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="admin-assets/css/Features-Boxed.css">
+    <link rel="stylesheet" href="admin-assets/css/styles.css">
+</head>
+</head>
 
-        <div class="container-fluid">
-            <h2>Seleccione la categoria que desea administrar</h2>
-            <div class="row">
-                <div class="col">
-                    <a href="/admin/categoria"><button class="btn btn-danger">Categoria Juego</button></a>
+<body>
+    
+    <%- include('header') %>
+
+    <section class="features-boxed">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center">Opciones de administración</h2>
+                <p class="text-center">A continuación, se muestran las opciones principales para los administradores</p>
+            </div>
+
+
+            <div class="row justify-content-center features">
+                <div class="col-sm-6 col-md-5 col-lg-4 item">
+                    <div class="box"><i class="fa fa-list icon" id="ico-categoJuegos"></i>
+                        <h3 class="name">Categorías de juego</h3>
+                        <p class="description">Añade categorías</p>
+                        <a href="/admin/categoria"><button class="btn btn-primary" id="categoJuegos">Categoria Juego</button></a>
+                    </div>
                 </div>
-                <div class="col">
-                    <a href="/admin/juego"><button class="btn btn-danger">Juego</button></a>
+
+
+                <div class="col-sm-6 col-md-5 col-lg-4 item">
+                    <div class="box"><i class="fa fa-gamepad icon" id="ico-juegos" ></i>
+                        <h3 class="name">Juegos</h3>
+                        <p class="description">Resumen de juegos</p>
+                        <a href="/admin/juego"><button class="btn btn-primary" id="juegos">Juego</button></a>
+                    </div>
                 </div>
-                <div class="col">
-                    <a href="/admin/partida"><button class="btn btn-danger">Partida</button></a>
+
+
+                <div class="col-sm-6 col-md-5 col-lg-4 item">
+                    <div class="box"><i class="fa fa-list-alt icon"></i>
+                        <h3 class="name">Partidas</h3>
+                        <p class="description">ADministrar partidas</p>
+                        <a href="/admin/partida"><button class="btn btn-primary">Partida</button></a>
+                    </div>
                 </div>
-                <div class="col">
-                    <a href="/admin/banner"><button class="btn btn-danger">Banner</button></a>
+
+
+                <div class="col-sm-6 col-md-5 col-lg-4 item">
+                    <div class="box"><i class="fa fa-image icon" id="ico-banners"></i>
+                        <h3 class="name">Banners</h3>
+                        <p class="description">Agregar banners</p>
+                        <a href="/admin/banner"><button class="btn btn-primary" id="banners">Banner</button></a>
+                    </div>
                 </div>
-                <div class="col">
-                    <a href="/admin/usuario"><button class="btn btn-danger">Usuario</button></a>
+
+                
+                <div class="col-sm-6 col-md-5 col-lg-4 item">
+                    <div class="box"><i class="fa fa-user icon" id="ico-usuarios"></i>
+                        <h3 class="name">Usuarios</h3>
+                        <p class="description">Administrar usuarios</p>
+                        <a href="/admin/usuario"><button class="btn btn-primary" id="usuarios">Usuario</button></a>
+                    </div>
                 </div>
-                <div class="col">
-                    <a href="/admin/equipo"><button class="btn btn-danger">Equipo</button></a>
+                <div class="col-sm-6 col-md-5 col-lg-4 item">
+                    <div class="box"><i class="fa fa-users icon" id="ico-equipos"></i>
+                        <h3 class="name">Equipos</h3>
+                        <p class="description">Administrar equipos</p>
+                        <a href="/admin/equipo"><button class="btn btn-primary" id="equipos">Equipo</button></a>
+                    </div>
                 </div>
-              </div>
-            
+            </div>
         </div>
-        
-        <%- include('footeradmin') %>
+    </section>
+    <script src="admin-assets/bootstrap/js/bootstrap.min.js"></script>
+    
+    <%- include('footer') %>
 
-    </body>
+    <script src="index-assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+    <script src="index-assets/js/Simple-Slider.js"></script>
+</body>
+
 </html>
